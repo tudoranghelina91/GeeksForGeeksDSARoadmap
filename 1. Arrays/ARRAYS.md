@@ -5,6 +5,7 @@ Because of the contiguous allocation of memory, any element of an array can be a
 Each array element has a corresponding index number. 
 
 ![alt text](./Images/array2.png "Array Data Structure")
+
 To learn more about arrays, refer to the article [Introduction to Arrays](https://www.geeksforgeeks.org/introduction-to-arrays/).
 
 Here are some topics about array which you must learn: 
