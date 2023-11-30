@@ -1,18 +1,7 @@
-﻿int[] arr = new int[20];
+﻿using Array.Utils;
 
-Console.WriteLine("Elements in array: ");
-
-for (int i = 0; i < arr.Length; i++)
-{
-    arr[i] = Random.Shared.Next(1, 100);
-    Console.Write($"{arr[i]}");
-    if (i < arr.Length - 1)
-    {
-        Console.Write(", ");
-    }
-}
-
-Console.WriteLine();
+int[] arr = ArrayGenerator.GenerateRandom();
+arr.Print();
 
 Console.WriteLine("Type in a number to search for: ");
 
