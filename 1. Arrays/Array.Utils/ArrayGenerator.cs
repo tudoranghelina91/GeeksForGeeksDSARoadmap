@@ -4,7 +4,7 @@ using System;
 
 public class ArrayGenerator
 {
-    public static int[] GenerateRandom(int numberOfElements = 100, int min = 1, int max = 100, bool sorted = false)
+    public static int[] GenerateRandom(int numberOfElements = 10, int min = 1, int max = 10, bool sorted = false)
     {
         int[] arr = new int[numberOfElements];
 

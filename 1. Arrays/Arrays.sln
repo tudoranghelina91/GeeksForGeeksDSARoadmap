@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays.LinearSearch", "Arrays.LinearSearch\Arrays.LinearSearch.csproj", "{7363A5E4-B1E8-4D93-A6C4-46E834E1462E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.LinearSearch", "Arrays.LinearSearch\Arrays.LinearSearch.csproj", "{7363A5E4-B1E8-4D93-A6C4-46E834E1462E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Utils", "Array.Utils\Array.Utils.csproj", "{E69E3621-C510-4AFB-80CF-5A6E39AF17BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Utils", "Array.Utils\Array.Utils.csproj", "{E69E3621-C510-4AFB-80CF-5A6E39AF17BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays.BinarySearch.Iterative", "Arrays.BinarySearch.Iterative\Arrays.BinarySearch.Iterative.csproj", "{E3C2EA3E-CBFF-4C75-8F87-5D756DC5E2B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.BinarySearch.Iterative", "Arrays.BinarySearch.Iterative\Arrays.BinarySearch.Iterative.csproj", "{E3C2EA3E-CBFF-4C75-8F87-5D756DC5E2B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays.BinarySearch.Recursive", "Arrays.BinarySearch.Recursive\Arrays.BinarySearch.Recursive.csproj", "{0C621C9F-0E29-4DE6-AFE4-2F82E9D75843}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.BinarySearch.Recursive", "Arrays.BinarySearch.Recursive\Arrays.BinarySearch.Recursive.csproj", "{0C621C9F-0E29-4DE6-AFE4-2F82E9D75843}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.Reverse", "Arrays.Reverse\Arrays.Reverse.csproj", "{4432448A-018E-472D-98F7-0C74F57888D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays.Reverse.Recursive", "Arrays.Reverse.Recursive\Arrays.Reverse.Recursive.csproj", "{9C03D136-B1AB-461C-A17C-6C20FBF33F91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{0C621C9F-0E29-4DE6-AFE4-2F82E9D75843}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C621C9F-0E29-4DE6-AFE4-2F82E9D75843}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C621C9F-0E29-4DE6-AFE4-2F82E9D75843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4432448A-018E-472D-98F7-0C74F57888D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4432448A-018E-472D-98F7-0C74F57888D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4432448A-018E-472D-98F7-0C74F57888D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4432448A-018E-472D-98F7-0C74F57888D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C03D136-B1AB-461C-A17C-6C20FBF33F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C03D136-B1AB-461C-A17C-6C20FBF33F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C03D136-B1AB-461C-A17C-6C20FBF33F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C03D136-B1AB-461C-A17C-6C20FBF33F91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
