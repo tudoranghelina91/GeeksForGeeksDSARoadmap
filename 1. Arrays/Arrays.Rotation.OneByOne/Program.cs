@@ -9,14 +9,14 @@ int numberOfRotations = Convert.ToInt32(Console.ReadLine());
 
 for (int rotation = 1; rotation <= numberOfRotations; rotation++)
 {
-    int carry = arr[arr.Length - 1];
+    int carry = arr[0];
 
-    for (int i = arr.Length - 1; i >= 1; i--)
+    for (int i = 1; i < arr.Length; i++)
     {
-        arr[i] = arr[i - 1];
+        arr[i - 1] = arr[i];
     }
 
-    arr[0] = carry;
+    arr[arr.Length - 1] = carry;
 }
 Console.WriteLine("Arrat after rotation:");
 arr.Print();
