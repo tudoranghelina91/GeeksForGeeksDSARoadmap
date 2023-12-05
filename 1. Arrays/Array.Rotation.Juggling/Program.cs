@@ -21,3 +21,34 @@ while (gcd != 0)
 }
 
 // 2. Rotate each subset
+
+// 2.1. Go through each subset
+for (int i = 0; i < arr.Length - gcd; i += gcd)
+{
+    // 2.2. Mark subset start as current position
+    int subsetStart = i;
+
+    // 2.3. Mark subset end as current position + gcd (offset)
+    int subsetEnd = i + gcd;
+
+    int currentPosInSubset = subsetStart;
+
+    // 2.4. rotate the actual subset
+    while (currentPosInSubset < subsetEnd)
+    {
+        // 2.5. Do the swapping here TODO: refine this
+        arr[currentPosInSubset] += arr[currentPosInSubset + gcd];
+        arr[currentPosInSubset + gcd] = arr[currentPosInSubset] - arr[currentPosInSubset + gcd];
+        arr[currentPosInSubset] -= arr[currentPosInSubset + gcd];
+
+        // 2.4.1. Move through each element of the subset to perform rotation
+        currentPosInSubset += gcd;
+    }
+}
+
+while (true)
+{
+    //int subsetStart = 0;
+    //int subsetEnd = 0;
+    //int step = gcd;
+}
