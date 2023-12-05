@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.Reverse", "Arrays.Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.Reverse.Recursive", "Arrays.Reverse.Recursive\Arrays.Reverse.Recursive.csproj", "{9C03D136-B1AB-461C-A17C-6C20FBF33F91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays.Rotation.OneByOne", "Arrays.Rotation.OneByOne\Arrays.Rotation.OneByOne.csproj", "{72444DEE-018B-4AD8-8E6D-14B3368F8765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.Rotation.OneByOne", "Arrays.Rotation.OneByOne\Arrays.Rotation.OneByOne.csproj", "{72444DEE-018B-4AD8-8E6D-14B3368F8765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Rotation.TempArray", "Array.Rotation.TempArray\Array.Rotation.TempArray.csproj", "{BB103428-7BDB-4435-B4F9-69277B389D30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Rotation.TempArray", "Array.Rotation.TempArray\Array.Rotation.TempArray.csproj", "{BB103428-7BDB-4435-B4F9-69277B389D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Rotation.Juggling", "Array.Rotation.Juggling\Array.Rotation.Juggling.csproj", "{34506E2D-9580-4FB6-B235-7FAF90EB09D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{BB103428-7BDB-4435-B4F9-69277B389D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB103428-7BDB-4435-B4F9-69277B389D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB103428-7BDB-4435-B4F9-69277B389D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34506E2D-9580-4FB6-B235-7FAF90EB09D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34506E2D-9580-4FB6-B235-7FAF90EB09D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34506E2D-9580-4FB6-B235-7FAF90EB09D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34506E2D-9580-4FB6-B235-7FAF90EB09D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,4 +20,16 @@ public class ArrayGenerator
 
         return arr;
     }
+
+    public static int[] GenerateSequential(int numberOfElements = 10, int start = 1)
+    {
+        int[] arr = new int[numberOfElements];
+
+        for (int i = 0; i < numberOfElements; i++)
+        {
+            arr[i] = start + i;
+        }
+
+        return arr;
+    }
 }
