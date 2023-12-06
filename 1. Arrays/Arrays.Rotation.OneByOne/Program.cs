@@ -16,7 +16,7 @@ for (int rotation = 1; rotation <= numberOfRotations; rotation++)
         arr[i - 1] = arr[i];
     }
 
-    arr[arr.Length - 1] = carry;
+    arr[^1] = carry;
 }
 Console.WriteLine("Arrat after rotation:");
 arr.Print();

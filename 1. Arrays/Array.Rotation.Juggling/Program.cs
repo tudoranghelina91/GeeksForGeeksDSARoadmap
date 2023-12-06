@@ -10,14 +10,14 @@ int d = Convert.ToInt32(Console.ReadLine());
 
 // 1. Calculate Greatest Common Divisor between the length of the input array and the number of rotations that need to be performed
 
-int n = arr.Length;
-int gcd = d;
+int gcd = arr.Length;
+int b = d;
 
-while (gcd != 0)
+while (b != 0)
 {
-    int r = n % gcd;
-    n = gcd;
-    gcd = r;
+    int r = gcd % b;
+    gcd = b;
+    b = r;
 }
 
 // 2. Rotate each subset
@@ -33,6 +33,8 @@ for (int i = 0; i < arr.Length - gcd; i += gcd)
 
     int currentPosInSubset = subsetStart;
 
+    int carry = arr[subsetStart];
+
     // 2.4. rotate the actual subset
     while (currentPosInSubset < subsetEnd)
     {
@@ -44,11 +46,9 @@ for (int i = 0; i < arr.Length - gcd; i += gcd)
         // 2.4.1. Move through each element of the subset to perform rotation
         currentPosInSubset += gcd;
     }
+
+    arr[subsetEnd] = carry;
 }
 
-while (true)
-{
-    //int subsetStart = 0;
-    //int subsetEnd = 0;
-    //int step = gcd;
-}
+Console.WriteLine("Array after rotation:");
+arr.Print();
