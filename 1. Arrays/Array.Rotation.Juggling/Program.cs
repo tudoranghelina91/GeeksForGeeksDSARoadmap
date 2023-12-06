@@ -1,6 +1,6 @@
 ﻿using Array.Utils;
 
-int[] arr = ArrayGenerator.GenerateSequential(10, 6);
+int[] arr = ArrayGenerator.GenerateSequential(5);
 
 Console.WriteLine("Elements before rotating");
 arr.Print();
@@ -38,7 +38,7 @@ for (int i = 0; i < arr.Length - gcd; i += gcd)
     // 2.4. rotate the actual subset
     while (currentPosInSubset < subsetEnd)
     {
-        // 2.5. Do the swapping here TODO: refine this
+        // 2.5. Do the swapping here
         arr[currentPosInSubset] += arr[currentPosInSubset + gcd];
         arr[currentPosInSubset + gcd] = arr[currentPosInSubset] - arr[currentPosInSubset + gcd];
         arr[currentPosInSubset] -= arr[currentPosInSubset + gcd];
