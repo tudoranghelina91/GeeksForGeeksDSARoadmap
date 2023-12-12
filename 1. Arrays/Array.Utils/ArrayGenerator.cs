@@ -32,4 +32,21 @@ public class ArrayGenerator
 
         return arr;
     }
+
+    public static int[] GenerateSequential(int numberOfElements = 10, int start = 1, int capacity = 10)
+    {
+        if (numberOfElements < 0 || numberOfElements > capacity)
+        {
+            throw new ArgumentOutOfRangeException(nameof(numberOfElements));
+        }
+
+        int[] arr = new int[capacity];
+
+        for (int i = 0; i < numberOfElements; i++)
+        {
+            arr[i] = start + i;
+        }
+
+        return arr;
+    }
 }

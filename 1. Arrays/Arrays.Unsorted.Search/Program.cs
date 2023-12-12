@@ -9,7 +9,7 @@ Console.WriteLine("Type in a value to search:");
 
 int key = Convert.ToInt32(Console.ReadLine());
 
-// For unsorted arrays, just loop through the array.
+// For unsorted arrays, just perform a linear search.
 for (int i = 0; i < array.Length; i++)
 {
     if (array[i] == key)
