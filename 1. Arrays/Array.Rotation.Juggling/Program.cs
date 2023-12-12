@@ -1,4 +1,6 @@
-﻿using Array.Utils;
+﻿// TOOD: Finish implementing rotation using juggling algorithms
+// TODO: Create project for Reversal algorithm
+using Array.Utils;
 
 int[] arr = ArrayGenerator.GenerateSequential(5);
 
