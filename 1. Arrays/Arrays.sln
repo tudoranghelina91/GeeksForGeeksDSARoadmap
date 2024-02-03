@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Rotation.TempArray", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Rotation.Juggling", "Array.Rotation.Juggling\Array.Rotation.Juggling.csproj", "{34506E2D-9580-4FB6-B235-7FAF90EB09D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays.Unsorted.Search", "Arrays.Unsorted.Search\Arrays.Unsorted.Search.csproj", "{B7FBB77B-35DF-41C3-9BCE-80C8B4FDCEE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.Unsorted.Search", "Arrays.Unsorted.Search\Arrays.Unsorted.Search.csproj", "{B7FBB77B-35DF-41C3-9BCE-80C8B4FDCEE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Unsorted.Insert", "Array.Unsorted.Insert\Array.Unsorted.Insert.csproj", "{15EC7440-AB9F-405D-A2CB-9E87021F95F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Unsorted.Insert", "Array.Unsorted.Insert\Array.Unsorted.Insert.csproj", "{15EC7440-AB9F-405D-A2CB-9E87021F95F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Unsorted.Delete", "Array.Unsorted.Delete\Array.Unsorted.Delete.csproj", "{118495D5-8E20-4038-9BCE-3FDC559165F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{15EC7440-AB9F-405D-A2CB-9E87021F95F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15EC7440-AB9F-405D-A2CB-9E87021F95F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15EC7440-AB9F-405D-A2CB-9E87021F95F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{118495D5-8E20-4038-9BCE-3FDC559165F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118495D5-8E20-4038-9BCE-3FDC559165F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118495D5-8E20-4038-9BCE-3FDC559165F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118495D5-8E20-4038-9BCE-3FDC559165F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,7 +20,7 @@ public static class ArrayPrintExtensions
 
     public static void Print(this int[] arr, int n)
     {
-        if (n < 0 || n >= arr.Length)
+        if (n < 0 || n > arr.Length)
         {
             throw new ArgumentOutOfRangeException(nameof(n));
         }
