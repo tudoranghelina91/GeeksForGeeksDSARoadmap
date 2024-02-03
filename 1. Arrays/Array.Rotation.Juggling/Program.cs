@@ -1,56 +1,61 @@
-﻿// TOOD: Finish implementing rotation using juggling algorithms
-// TODO: Create project for Reversal algorithm
-using Array.Utils;
+﻿namespace Array.Rotation.Juggling;
 
-int[] arr = ArrayGenerator.GenerateSequential(5);
-
-Console.WriteLine("Elements before rotating");
-arr.Print();
-
-Console.WriteLine("Input number of rotations to be performed:");
-int d = Convert.ToInt32(Console.ReadLine());
-
-// 1. Calculate Greatest Common Divisor between the length of the input array and the number of rotations that need to be performed
-
-int gcd = arr.Length;
-int b = d;
-
-while (b != 0)
+class Program
 {
-    int r = gcd % b;
-    gcd = b;
-    b = r;
-}
-
-// 2. Rotate each subset
-
-// 2.1. Go through each subset
-for (int i = 0; i < arr.Length - gcd; i += gcd)
-{
-    // 2.2. Mark subset start as current position
-    int subsetStart = i;
-
-    // 2.3. Mark subset end as current position + gcd (offset)
-    int subsetEnd = i + gcd;
-
-    int currentPosInSubset = subsetStart;
-
-    int carry = arr[subsetStart];
-
-    // 2.4. rotate the actual subset
-    while (currentPosInSubset < subsetEnd)
+    // Function to get gcd of a and b
+    static int gcd(int a, int b)
     {
-        // 2.5. Do the swapping here
-        arr[currentPosInSubset] += arr[currentPosInSubset + gcd];
-        arr[currentPosInSubset + gcd] = arr[currentPosInSubset] - arr[currentPosInSubset + gcd];
-        arr[currentPosInSubset] -= arr[currentPosInSubset + gcd];
-
-        // 2.4.1. Move through each element of the subset to perform rotation
-        currentPosInSubset += gcd;
+        if (b == 0)
+            return a;
+        else
+            return gcd(b, a % b);
     }
 
-    arr[subsetEnd] = carry;
-}
+    // Function to left rotate arr[] of size n by d
+    static void leftRotate(int[] arr, int d, int n)
+    {
+        // To handle if d >= n
+        d = d % n;
+        int g_c_d = gcd(d, n);
+        for (int i = 0; i < g_c_d; i++)
+        {
+            // move i-th values of blocks
+            int temp = arr[i];
+            int j = i;
 
-Console.WriteLine("Array after rotation:");
-arr.Print();
+            while (true)
+            {
+                int k = j + d;
+                if (k >= n)
+                    k = k - n;
+
+                if (k == i)
+                    break;
+
+                arr[j] = arr[k];
+                j = k;
+            }
+            arr[j] = temp;
+        }
+    }
+
+    // Function to print an array
+    static void printArray(int[] arr, int size)
+    {
+        for (int i = 0; i < size; i++)
+            Console.Write(arr[i] + " ");
+    }
+
+    // Driver's code
+    static public void Main(string[] args)
+    {
+        int[] arr = { 1, 2, 3, 4, 5, 6 };
+        int n = arr.Length;
+        int d = 2;
+        printArray(arr, n);
+        Console.WriteLine();
+        // Function calling
+        leftRotate(arr, d, n);
+        printArray(arr, n);
+    }
+}
