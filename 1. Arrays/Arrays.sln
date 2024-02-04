@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays.Unsorted.Search", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Unsorted.Insert", "Array.Unsorted.Insert\Array.Unsorted.Insert.csproj", "{15EC7440-AB9F-405D-A2CB-9E87021F95F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Unsorted.Delete", "Array.Unsorted.Delete\Array.Unsorted.Delete.csproj", "{118495D5-8E20-4038-9BCE-3FDC559165F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Unsorted.Delete", "Array.Unsorted.Delete\Array.Unsorted.Delete.csproj", "{118495D5-8E20-4038-9BCE-3FDC559165F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays.Sorted.Search", "Arrays.Sorted.Search\Arrays.Sorted.Search.csproj", "{84CBB934-C8C2-40D5-BCE4-1DDE907D2C75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{118495D5-8E20-4038-9BCE-3FDC559165F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{118495D5-8E20-4038-9BCE-3FDC559165F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{118495D5-8E20-4038-9BCE-3FDC559165F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CBB934-C8C2-40D5-BCE4-1DDE907D2C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CBB934-C8C2-40D5-BCE4-1DDE907D2C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CBB934-C8C2-40D5-BCE4-1DDE907D2C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CBB934-C8C2-40D5-BCE4-1DDE907D2C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
