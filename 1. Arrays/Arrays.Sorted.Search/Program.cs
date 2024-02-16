@@ -1,5 +1,5 @@
 ﻿using Array.Utils;
-int[] arr = ArrayGenerator.GenerateSequential(10, 5);
+int[] arr = ArrayGenerator.GenerateSequential(10, 5, 1);
 
 arr.Print();
 

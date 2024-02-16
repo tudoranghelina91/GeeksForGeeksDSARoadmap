@@ -21,19 +21,22 @@ public class ArrayGenerator
         return arr;
     }
 
-    public static int[] GenerateSequential(int numberOfElements = 10, int start = 1)
+    public static int[] GenerateSequential(int numberOfElements = 10, int start = 1, int step = 1)
     {
         int[] arr = new int[numberOfElements];
 
+        int k = start;
+
         for (int i = 0; i < numberOfElements; i++)
         {
-            arr[i] = start + i;
+            arr[i] = k;
+            k += step;
         }
 
         return arr;
     }
 
-    public static int[] GenerateSequential(int numberOfElements = 10, int start = 1, int capacity = 10)
+    public static int[] GenerateSequential(int numberOfElements = 10, int start = 1, int capacity = 10, int step = 1)
     {
         if (numberOfElements < 0 || numberOfElements > capacity)
         {
@@ -42,9 +45,12 @@ public class ArrayGenerator
 
         int[] arr = new int[capacity];
 
+        int k = start;
+
         for (int i = 0; i < numberOfElements; i++)
         {
-            arr[i] = start + i;
+            arr[i] = k;
+            k += step;
         }
 
         return arr;
