@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Array.Utils\Array.Utils.csproj" />
     <ProjectReference Include="..\Array.Utils\Array.Utils.csproj" />
   </ItemGroup>
 
