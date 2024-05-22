@@ -1,0 +1,89 @@
+Given an array with all distinct elements, find the largest three elements.
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1). 
+
+Examples :
+
+Input: arr[] = {10, 4, 3, 50, 23, 90}
+Output: 90, 50, 23
+
+
+Input: arr[] = { 6, 8, 1, 9, 2, 1, 10, 10}
+Output: 10, 10, 9
+
+Approach:
+
+Initialize three variables, `first`, `second`, and `third`, to store the three largest elements. We then iterate through the array and compare each element with the current values of `first`, `second`, and `third`. If an element is greater than `first`, we update `third` to `second`, `second` to `first`, and `first` to the new element. If an element is greater than `second` but not `first`, we update `third` to `second` and `second` to the new element. If an element is greater than `third` but not `second` or `first`, we update `third` to the new element. After iterating through the entire array, `first`, `second`, and `third` will contain the three largest elements, which we can then print as the result.
+
+Set first, second, and third to the minimum possible integer value (INT_MIN).
+Iterate through the Array
+For each element arr[i]:
+If arr[i] is greater than first:
+Update third to second, second to first, and first to arr[i].
+Otherwise, if arr[i] is greater than second and not equal to first:
+Update third to second and second to arr[i].
+Otherwise, if arr[i] is greater than third and not equal to second and first:
+Update third to arr[i].
+Print the values of first, second, and third as the three largest elements.
+Below is the implementation of the above algorithm.
+
+
+// C# code to find largest
+// three elements in an array
+using System;
+
+class PrintLargest {
+
+    // Function to print three
+    // largest elements
+    static void print3largest(int[] arr,
+                              int arr_size)
+    {
+        int i, first, second, third;
+
+        // There should be atleast three elements
+        if (arr_size < 3) {
+            Console.WriteLine("Invalid Input");
+            return;
+        }
+
+        third = first = second = 000;
+        for (i = 0; i < arr_size; i++) {
+            // If current element is
+            // greater than first
+            if (arr[i] > first) {
+                third = second;
+                second = first;
+                first = arr[i];
+            }
+
+            // If arr[i] is in between first
+            // and second then update second
+            else if (arr[i] > second && arr[i] != first) {
+                third = second;
+                second = arr[i];
+            }
+
+            else if (arr[i] > third && arr[i]!=second)
+                third = arr[i];
+        }
+
+        Console.WriteLine("Three largest elements are " + first + " " + second + " " + third);
+    }
+
+    // Driver code
+    public static void Main()
+    {
+        int[] arr = new int[] { 12, 13, 1, 10, 34, 1 };
+        int n = arr.Length;
+        print3largest(arr, n);
+    }
+}
+
+// This code is contributed by KRV and edited by Ayush Singla(@ayusin51).
+
+Output
+Three largest elements are 34 13 12
+Time Complexity: O(n)
+Auxiliary Space: O(1)
