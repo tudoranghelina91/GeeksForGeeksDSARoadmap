@@ -13,28 +13,50 @@
 
 //Input: arr[] = { 1, 2, 0, 0, 3, 6, 0 };
 
-int[] arr = { 1, 2, 0, 4, 3, 0, 5, 0 };
-bool allZeroesAtEnd;
-int end = arr.Length;
+// Do it in two passes:
 
-do
+// 1st pass - determine loop
+// 2nd pass - write zeroes at end
+
+int[] arr = { 1, 2, 0, 0, 3, 6, 0 };
+
+int count = 0;
+
+for (int i = 0; i < arr.Length; i++)
 {
-    allZeroesAtEnd = true;
-    for (int i = 0; i < end; i++)
+    if (arr[i] != 0)
     {
-        if (arr[i] == 0)
-        {
-            for (int j = i; j < arr.Length - 1; j++)
-            {
-                arr[j] += arr[j + 1];
-                arr[j + 1] = arr[j] - arr[j + 1];
-                arr[j] -= arr[j + 1];
-            }
-            end--;
-            allZeroesAtEnd = false;
-        }
+        arr[count++] = arr[i];
     }
-} while (!allZeroesAtEnd);
+}
+
+while (count < arr.Length)
+{
+    arr[count++] = 0;
+}
+
+//// My solution - extremely inefficient but gets the job done - O(n^3)
+//bool allZeroesAtEnd;
+//int end = arr.Length;
+
+//do
+//{
+//    allZeroesAtEnd = true;
+//    for (int i = 0; i < end; i++)
+//    {
+//        if (arr[i] == 0)
+//        {
+//            for (int j = i; j < arr.Length - 1; j++)
+//            {
+//                arr[j] += arr[j + 1];
+//                arr[j + 1] = arr[j] - arr[j + 1];
+//                arr[j] -= arr[j + 1];
+//            }
+//            end--;
+//            allZeroesAtEnd = false;
+//        }
+//    }
+//} while (!allZeroesAtEnd);
 
 for (int i = 0; i < arr.Length; i++)
 {
