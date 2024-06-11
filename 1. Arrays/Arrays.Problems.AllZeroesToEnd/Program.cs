@@ -15,8 +15,8 @@
 
 // Do it in two passes:
 
-// 1st pass - determine loop
-// 2nd pass - write zeroes at end
+// 1st pass - Use a count variable which gets incremented when the value at current position is zero
+// 2nd pass - write zeroes at end starting from the remaining count
 
 int[] arr = { 1, 2, 0, 0, 3, 6, 0 };
 

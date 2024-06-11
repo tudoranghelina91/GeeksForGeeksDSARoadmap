@@ -1,47 +1,29 @@
-﻿// C# program to rearrange the elements
-// in the array such that even positioned are
-// greater than odd positioned elements
-using System;
+﻿// Skip odd
 
-internal class GFG
+//int[] arr = { 2, 1, 2, 1 };
+
+int[] arr = { 2, 1, 2, 1 };
+
+for (int i = 0; i < arr.Length; i += 2)
 {
-    // function to rearrange the elements in array such that
-    // even positioned are greater than odd positioned
-    // elements
-    private static void Rearrange(int[] arr, int N)
+    // look behind
+    if (i > 0 && arr[i - 1] > arr[i])
     {
-        for (int i = 0; i < N; i += 2)
-        {
-            // Compare it with the previous element
-            if (i > 0 && arr[i - 1] > arr[i])
-            {
-                int temp = arr[i - 1];
-                arr[i - 1] = arr[i];
-                arr[i] = temp;
-            }
-
-            // Compare it with the next element
-            if (i < N - 1 && arr[i + 1] > arr[i])
-            {
-                int temp = arr[i + 1];
-                arr[i + 1] = arr[i];
-                arr[i] = temp;
-            }
-        }
+        arr[i - 1] += arr[i];
+        arr[i] = arr[i - 1] - arr[i];
+        arr[i - 1] -= arr[i];
     }
 
-    private static void Main()
+    // look ahead
+    if (i < arr.Length - 1 && arr[i + 1] > arr[i])
     {
-        // Sample Input
-        int N = 4;
-        int[] arr = { 1, 2, 2, 1 };
-
-        Rearrange(arr, N);
-
-        for (int i = 0; i < N; i++)
-            Console.Write(arr[i] + " ");
-        Console.WriteLine();
+        arr[i] += arr[i + 1];
+        arr[i + 1] = arr[i] - arr[i + 1];
+        arr[i] -= arr[i + 1];
     }
 }
 
-// This code is contributed by shivanisinghss2110
+for (int i = 0; i < arr.Length; i++)
+    Console.Write(arr[i] + " ");
+
+Console.WriteLine();
