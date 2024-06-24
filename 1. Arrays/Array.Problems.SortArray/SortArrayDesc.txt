@@ -1,0 +1,114 @@
+ort an array which contain 1 to n values
+Last Updated : 30 Apr, 2024
+You have given an array which contain 1 to n element, your task is to sort this array in an efficient way and without replace with 1 to n numbers.
+Examples : 
+
+Input : arr[] = {10, 7, 9, 2, 8, 3, 5, 4, 6, 1};
+Output : 1 2 3 4 5 6 7 8 9 10 
+
+
+Native approach : 
+Sort this array with the use of any type of sorting method(or use inbuilt sorting method) it takes O(nlogn) minimum time.
+
+Below is the code implementation of the above approach
+
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    // Input array containing elements from 1 to n
+    vector<int> arr = { 3, 1, 4, 2, 5 };
+
+    sort(arr.begin(), arr.end());
+
+    cout << "Sorted array is : ";
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
+Output
+Sorted array is : 1 2 3 4 5 
+Time Complexity: O(n log n)
+
+Auxiliary Space: O(1)
+
+
+
+Efficient Approach (Using Cyclic Sort):
+
+Idea: 
+
+The given array contains number in the range [1 to n]  so we can use cyclic sort 
+
+Follow the steps mentioned below to solve the problem
+
+Traverse the array 
+Check if the array is at correct position
+Else swap the element to the element at its correct position
+Below is the code implementation of the above approach:
+
+
+// C# code of the above approach
+using System;
+
+class MainClass
+{
+    // Function to sort the array
+    static void sort(int[] arr, int n)
+    {
+        int i = 0;
+      
+        while (i < n)
+        {
+             // Finding the correct index
+             int correct = arr[i] - 1;
+
+             // Element index and value not match 
+             // then swapping
+             if (arr[correct] != arr[i])
+             {
+                // Calling swap function
+                 swap(ref arr[i], ref arr[correct]);
+             }
+             else
+             {
+                 i++;
+             }
+        }
+    }
+
+    // Function to swap values
+    static void swap(ref int a, ref int b)
+    {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // Driver Code
+    public static void Main()
+    {
+        int[] arr = { 3, 2, 5, 6, 1, 4 };
+        int n = arr.Length;
+
+        // Function call
+        sort(arr, n);
+
+        // Printing the answer
+        for (int i = 0; i < n; i++)
+            Console.Write(arr[i] + " ");
+    }
+}
+
+// This code is contributed by nikhilsainiofficial546
+
+Output
+1 2 3 4 5 6 
+Time Complexity: O(n)
+Auxiliary Space: O(1)
