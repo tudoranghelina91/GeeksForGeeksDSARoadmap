@@ -51,7 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Problems.EvenOddLomut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Problems.RotationWithReversal", "Array.Problems.RotationWithReversal\Array.Problems.RotationWithReversal.csproj", "{DE39F7C0-EE70-4B6A-A34A-7C1233B4DDF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Problems.Rotation.InOnO1Time", "Array.Problems.Rotation.InOnO1Time\Array.Problems.Rotation.InOnO1Time.csproj", "{790F98CA-367F-4D75-A9A4-ABD054E875D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array.Problems.Rotation.InOnO1Time", "Array.Problems.Rotation.InOnO1Time\Array.Problems.Rotation.InOnO1Time.csproj", "{790F98CA-367F-4D75-A9A4-ABD054E875D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array.Problems.WaveForm", "Array.Problems.WaveForm\Array.Problems.WaveForm.csproj", "{1C4E6CF4-494D-4918-AF4E-8F1DAC3C43AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,6 +153,10 @@ Global
 		{790F98CA-367F-4D75-A9A4-ABD054E875D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{790F98CA-367F-4D75-A9A4-ABD054E875D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{790F98CA-367F-4D75-A9A4-ABD054E875D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C4E6CF4-494D-4918-AF4E-8F1DAC3C43AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4E6CF4-494D-4918-AF4E-8F1DAC3C43AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4E6CF4-494D-4918-AF4E-8F1DAC3C43AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C4E6CF4-494D-4918-AF4E-8F1DAC3C43AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -179,6 +185,7 @@ Global
 		{7DE7F223-26EA-4028-97FA-08FD68A52AF4} = {EF424B3B-72CE-4D3D-BB3A-E7EFE4E1F83A}
 		{DE39F7C0-EE70-4B6A-A34A-7C1233B4DDF5} = {EF424B3B-72CE-4D3D-BB3A-E7EFE4E1F83A}
 		{790F98CA-367F-4D75-A9A4-ABD054E875D6} = {EF424B3B-72CE-4D3D-BB3A-E7EFE4E1F83A}
+		{1C4E6CF4-494D-4918-AF4E-8F1DAC3C43AD} = {EF424B3B-72CE-4D3D-BB3A-E7EFE4E1F83A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACA89CC3-AB6C-4ED0-AE74-F84C9E23B7D0}

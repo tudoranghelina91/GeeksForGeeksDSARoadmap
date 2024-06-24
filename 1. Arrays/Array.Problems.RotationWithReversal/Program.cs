@@ -9,7 +9,7 @@ namespace Array.Problems.RotationWithReversal
         /* Function to left rotate arr[]
         of size n by d */
 
-        private static void leftRotate(int[] arr, int d)
+        private static void LeftRotate(int[] arr, int d)
         {
             if (d == 0)
                 return;
@@ -17,15 +17,15 @@ namespace Array.Problems.RotationWithReversal
             // in case the rotating factor is
             // greater than array length
             d = d % n;
-            reverseArray(arr, 0, d - 1);
-            reverseArray(arr, d, n - 1);
-            reverseArray(arr, 0, n - 1);
+            ReverseArray(arr, 0, d - 1);
+            ReverseArray(arr, d, n - 1);
+            ReverseArray(arr, 0, n - 1);
         }
 
         /* Function to reverse arr[] from
         index start to end*/
 
-        private static void reverseArray(int[] arr, int start,
+        private static void ReverseArray(int[] arr, int start,
                                 int end)
         {
             int temp;
@@ -42,7 +42,7 @@ namespace Array.Problems.RotationWithReversal
         /*UTILITY FUNCTIONS*/
         /* function to print an array */
 
-        private static void printArray(int[] arr)
+        private static void PrintArray(int[] arr)
         {
             for (var i = 0; i < arr.Length; i++)
                 Console.Write(arr[i] + " ");
@@ -55,8 +55,8 @@ namespace Array.Problems.RotationWithReversal
             var n = arr.Length;
             var d = 2;
 
-            leftRotate(arr, d); // Rotate array by 2
-            printArray(arr);
+            LeftRotate(arr, d); // Rotate array by 2
+            PrintArray(arr);
         }
     }
 }
