@@ -1,0 +1,263 @@
+Count the number of possible triangles
+Last Updated : 19 Mar, 2024
+Given an unsorted array of positive integers, find the number of triangles that can be formed with three different array elements as three sides of triangles. For a triangle to be possible from 3 values, the sum of any of the two values (or sides) must be greater than the third value (or third side). 
+
+Examples: 
+
+Input: arr= {4, 6, 3, 7}
+Output: 3
+Explanation: There are three triangles 
+possible {3, 4, 6}, {4, 6, 7} and {3, 6, 7}. 
+Note that {3, 4, 7} is not a possible triangle.  
+
+Input: arr= {10, 21, 22, 100, 101, 200, 300}.
+Output: 6
+Explanation: There can be 6 possible triangles:
+{10, 21, 22}, {21, 100, 101}, {22, 100, 101}, 
+{10, 100, 101}, {100, 101, 200} and {101, 200, 300}
+
+Recommended Problem
+Count the number of possible triangles
+Arrays
+Sorting
++2 more
+Amazon
+Microsoft
+Solve Problem
+Submission count: 1L
+Naive Approach: To solve the problem follow the below idea: 
+
+The brute force method is to run three loops and keep track of the number of triangles possible so far. The three loops select three different values from an array. The innermost loop checks for the triangle property which specifies the sum of any two sides must be greater than the value of the third side).
+
+Follow the given steps to solve the problem:
+
+Run three nested loops each loop starting from the index of the previous loop to the end of the array i.e run first loop from 0 to n, loop j from i to n, and k from j to n
+Check if array[i] + array[j] > array[k], i.e. sum of two sides is greater than the third
+Check condition 2 for all combinations of sides by interchanging i, j, k
+If all three conditions match, then increase the count
+Print the count
+Below is the implementation of the above approach:
+
+
+// C++ code to count the number of possible triangles using
+// brute force approach
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to count all possible triangles with arr[]
+// elements
+int findNumberOfTriangles(int arr[], int n)
+{
+    // Count of triangles
+    int count = 0;
+
+    // The three loops select three different values from
+    // array
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+
+            // The innermost loop checks for the triangle
+            // property
+            for (int k = j + 1; k < n; k++)
+
+                // Sum of two sides is greater than the
+                // third
+                if (arr[i] + arr[j] > arr[k]
+                    && arr[i] + arr[k] > arr[j]
+                    && arr[k] + arr[j] > arr[i])
+                    count++;
+        }
+    }
+    return count;
+}
+
+// Driver code
+int main()
+{
+    int arr[] = { 10, 21, 22, 100, 101, 200, 300 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    // Function call
+    cout << "Total number of triangles possible is "
+         << findNumberOfTriangles(arr, size);
+    return 0;
+}
+
+// This code is contributed by Sania Kumari Gupta
+
+Output
+Total number of triangles possible is 6
+Time Complexity: O(N3) where N is the size of the input array
+Auxiliary Space: O(1)
+
+Count the number of possible triangles using sorting:
+To solve the problem follow the below idea: 
+
+First sort the array in ascending order. Then use two loops. The outer loop to fix the first side and the inner loop to fix the second side and then find the farthest index of the third side (greater than indices of both sides) whose length is less than the sum of the other two sides. So a range of values third side can be found, where it is guaranteed that its length is greater than the other individual sides but less than the sum of both sides.
+
+Let a, b, and c be three sides. The below conditions must hold true for a triangle (the sum of two sides is greater than the third side) 
+
+a + b > c 
+b + c > a 
+a + c > b
+Follow the given steps to solve the problem:
+
+Sort the array in ascending order.
+Now run a nested loop. The outer loop runs from start to end and the inner loop runs from index + 1 of the first loop to the end. Take the loop counter of the first loop as i and the second loop as j. Take another variable k = i + 2
+Now there are two pointers i and j, where array[i] and array[j] represent two sides of the triangles. For a fixed i and j, find the count of third sides which will satisfy the conditions of a triangle. i.e find the largest value of array[k] such that array[i] + array[j] > array[k]
+So when we get the largest value, then the count of the third side is k – j, add it to the total count.
+Now sum up for all valid pairs of i and j where i < j
+Below is the implementation of the above approach:
+
+
+// C# program to count number
+// of triangles that can be
+// formed from given array
+using System;
+
+class GFG {
+    // Function to count all
+    // possible triangles
+    // with arr[] elements
+    static int findNumberOfTriangles(int[] arr)
+    {
+        int n = arr.Length;
+
+        // Sort the array elements
+        // in non-decreasing order
+        Array.Sort(arr);
+
+        // Initialize count
+        // of triangles
+        int count = 0;
+
+        // Fix the first element. We
+        // need to run till n-3 as
+        // the other two elements are
+        // selected from arr[i+1...n-1]
+        for (int i = 0; i < n - 2; ++i) {
+            // Initialize index of the
+            // rightmost third element
+            int k = i + 2;
+
+            // Fix the second element
+            for (int j = i + 1; j < n; ++j) {
+                /* Find the rightmost element
+                which is smaller than the sum
+                of two fixed elements. The
+                important thing to note here
+                is, we use the previous value
+                of k. If value of arr[i] +
+                arr[j-1] was greater than arr[k],
+                then arr[i] + arr[j] must be
+                greater than k, because the
+                array is sorted. */
+                while (k < n && arr[i] + arr[j] > arr[k])
+                    ++k;
+
+                /* Total number of possible triangles
+                that can be formed with the two
+                fixed elements is k - j - 1. The
+                two fixed elements are arr[i] and
+                arr[j]. All elements between arr[j+1]
+                to arr[k-1] can form a triangle with
+                arr[i] and arr[j]. One is subtracted
+                from k because k is incremented one
+                extra in above while loop. k will
+                always be greater than j. If j becomes
+                equal to k, then above loop will
+                increment k, because arr[k] + arr[i]
+                is always/ greater than arr[k] */
+                if (k > j)
+                    count += k - j - 1;
+            }
+        }
+        return count;
+    }
+
+    // Driver Code
+    public static void Main()
+    {
+        int[] arr = { 10, 21, 22, 100, 101, 200, 300 };
+
+        // Function call
+        Console.WriteLine("Total number of triangles is "
+                          + findNumberOfTriangles(arr));
+    }
+}
+
+// This code is contributed by anuj_67.
+
+Output
+Total number of triangles possible is 6
+Time Complexity: O(N2). The time complexity looks more because of 3 nested loops. It can be observed that k is initialized only once in the outermost loop. The innermost loop executes at most O(n) time for every iteration of the outermost loop, because k starts from i+2 and goes up to n for all values of j. Therefore, the time complexity is O(n^2).
+Auxiliary Space: O(1), No extra space is required. So space complexity is constant
+
+Count the number of possible triangles using two pointer approach:
+To solve the problem follow the below idea: 
+
+First, sort the array, and run a nested loop, fix an index, and then try to fix an upper and lower index within which we can use all the lengths to form a triangle with that fixed index.
+
+Follow the given steps to solve the problem:
+
+Sort the array and then take three variables l, r, and i, pointing to start, end-1, and array element starting from the end of the array.
+Traverse the array from the end (n-1 to 1), and for each iteration keep the value of l = 0 and r = i-1
+Now if a triangle can be formed using arr[l] and arr[r] then triangles can obviously be formed
+from a[l+1], a[l+2]…..a[r-1], arr[r] and a[i], because the array is sorted , which can be directly calculated using (r-l). and then decrement the value of r and continue the loop till l is less than r
+If a triangle cannot be formed using arr[l] and arr[r] then increment the value of l and continue the loop till l is less than r 
+So the overall complexity of iterating 
+through all array elements reduces
+Below is the implementation of the above approach:
+
+
+// C# implementation of the above approach
+using System;
+
+class GFG {
+    static void CountTriangles(int[] A)
+    {
+        int n = A.Length;
+
+        Array.Sort(A);
+
+        int count = 0;
+
+        for (int i = n - 1; i >= 1; i--) {
+            int l = 0, r = i - 1;
+            while (l < r) {
+                if (A[l] + A[r] > A[i]) {
+
+                    // If it is possible with a[l], a[r]
+                    // and a[i] then it is also possible
+                    // with a[l+1]..a[r-1], a[r] and a[i]
+                    count += r - l;
+
+                    // checking for more possible solutions
+                    r--;
+                }
+                else // if not possible check for
+                // higher values of arr[l]
+                {
+                    l++;
+                }
+            }
+        }
+        Console.Write("No of possible solutions: " + count);
+    }
+
+    // Driver Code
+    public static void Main(String[] args)
+    {
+        int[] A = { 10, 21, 22, 100, 101, 200, 300 };
+
+        // Function call
+        CountTriangles(A);
+    }
+}
+
+// This code is contributed by Rajput-Ji
+
+Output
+No of possible solutions: 6
+Time complexity: O(N2).  As two nested loops are used, overall iterations in comparison to the above method reduces greatly.
+Auxiliary Space: O(1).  As no extra space is required, Auxiliary Space is constant
