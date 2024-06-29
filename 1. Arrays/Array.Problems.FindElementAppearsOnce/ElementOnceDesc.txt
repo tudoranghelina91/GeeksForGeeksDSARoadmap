@@ -1,0 +1,1044 @@
+Find the element that appears once in an array where every other element appears twice
+Last Updated : 20 Feb, 2023
+Given an array of integers. All numbers occur twice except one number which occurs once. Find the number in O(n) time & constant extra space.
+
+Example : 
+
+Input:  arr[] = {2, 3, 5, 4, 5, 3, 4}
+Output: 2 
+
+Approach (Brute-force): One solution is to check every element if it appears once or not. Once an element with a single occurrence is found, return it. 
+
+Below is the implementation of the approach:
+
+C++
+
+// C++ program to find the array element 
+// that appears only once 
+  
+#include <iostream> 
+using namespace std; 
+  
+// Function to find the 
+int findSingle(int A[], int ar_size) 
+{ 
+  
+    // Iterate over every element 
+    for (int i = 0; i < ar_size; i++) { 
+  
+        // Initialize count to 0 
+        int count = 0; 
+  
+        for (int j = 0; j < ar_size; j++) { 
+  
+            // Count the frequency 
+            // of the element 
+            if (A[i] == A[j]) { 
+                count++; 
+            } 
+        } 
+  
+        // if the frequency of the 
+        // element is one 
+        if (count == 1) { 
+            return A[i]; 
+        } 
+    } 
+  
+    // if no element exist at most once 
+    return -1; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    int ar[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int n = sizeof(ar) / sizeof(ar[0]); 
+    
+      // Function call 
+    cout << "Element occurring once is "
+         << findSingle(ar, n); 
+    
+    return 0; 
+} 
+  
+// This code is contributed by Arpit Jain
+Java
+
+/*package whatever //do not write package name here */
+import java.io.*; 
+class GFG { 
+  
+  // Function to find the 
+  static int findSingle(int A[], int ar_size) 
+  { 
+  
+    // Iterate over every element 
+    for (int i = 0; i < ar_size; i++) { 
+  
+      // Initialize count to 0 
+      int count = 0; 
+  
+      for (int j = 0; j < ar_size; j++) { 
+  
+        // Count the frequency 
+        // of the element 
+        if (A[i] == A[j]) { 
+          count++; 
+        } 
+      } 
+  
+      // if the frequency of the 
+      // element is one 
+      if (count == 1) { 
+        return A[i]; 
+      } 
+    } 
+  
+    // if no element exist at most once 
+    return -1; 
+  } 
+  
+  public static void main (String[] args) { 
+    int ar[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int n = ar.length; 
+  
+    // Function call 
+    System.out.println("Element occurring once is " + findSingle(ar, n)); 
+  } 
+} 
+  
+// This code is contributed by aadityaburujwale.
+Python3
+
+# Python code to find the array element that appears only once 
+  
+# Function to find the array 
+# element that appears only once 
+def findSingle(A, ar_size): 
+    
+    # iterate over every element 
+    for i in range(ar_size): 
+        
+        # Initialize count to 0 
+        count = 0
+        for j in range(ar_size): 
+            
+            # Count the frequency 
+            # of the element 
+            if(A[i] == A[j]): 
+                count += 1
+  
+        # If the frequency of 
+        # the element is one 
+        if(count == 1): 
+            return A[i] 
+            
+    # If no element exist 
+    # at most once 
+    return -1
+  
+ar = [2, 3, 5, 4, 5, 3, 4] 
+n = len(ar) 
+# Function call 
+print("Element occurring once is", findSingle(ar, n)) 
+  
+# This code is contributed by lokesh 
+C#
+
+// Include namespace system 
+using System; 
+  
+public class GFG 
+{ 
+  
+  // Function to find the 
+  public static int findSingle(int[] A, int ar_size) 
+  { 
+  
+    // Iterate over every element 
+    for (int i = 0; i < ar_size; i++) 
+    { 
+  
+      // Initialize count to 0 
+      var count = 0; 
+      for (int j = 0; j < ar_size; j++) 
+      { 
+  
+        // Count the frequency 
+        // of the element 
+        if (A[i] == A[j]) 
+        { 
+          count++; 
+        } 
+      } 
+  
+      // if the frequency of the 
+      // element is one 
+      if (count == 1) 
+      { 
+        return A[i]; 
+      } 
+    } 
+  
+    // if no element exist at most once 
+    return -1; 
+  } 
+  public static void Main(String[] args) 
+  { 
+    int[] ar = {2, 3, 5, 4, 5, 3, 4}; 
+    var n = ar.Length; 
+  
+    // Function call 
+    Console.WriteLine("Element occurring once is " +  
+                      GFG.findSingle(ar, n).ToString()); 
+  } 
+} 
+  
+// This code is contributed by aadityaburujwale.
+Javascript
+
+// Javascript program to find the array element 
+// that appears only once 
+  
+    // Function to find the 
+    function findSingle(A, ar_size) 
+{ 
+  
+    // Iterate over every element 
+    for (let i = 0; i < ar_size; i++) { 
+  
+        // Initialize count to 0 
+        let count = 0; 
+  
+        for (let j = 0; j < ar_size; j++) { 
+  
+            // Count the frequency 
+            // of the element 
+            if (A[i] == A[j]) { 
+                count++; 
+            } 
+        } 
+  
+        // if the frequency of the 
+        // element is one 
+        if (count == 1) { 
+            return A[i]; 
+        } 
+    } 
+  
+    // if no element exist at most once 
+    return -1; 
+} 
+  
+// Driver code 
+let ar = [ 2, 3, 5, 4, 5, 3, 4 ]; 
+let n = 7; 
+  
+// Function call 
+document.write("Element occurring once is "
+               + findSingle(ar, n)); 
+  
+// This code is contributed by garg28harsh. 
+Output
+Element occurring once is 2
+Time complexity of this solution is O(n2)
+Auxiliary Space: O(1) as constant space is used.
+
+A better solution is to use hashing. 
+
+Traverse all elements and put them in a hash table. Element is used as key and the count of occurrences is used as the value in the hash table. 
+Traverse the array again and print the element with count 1 in the hash table. 
+This solution works in O(n) time but requires extra space.
+
+The best solution is to use XOR. XOR of all array elements gives us the number with a single occurrence. The idea is based on the following two facts. 
+
+ XOR of a number with itself is 0. 
+XOR of a number with 0 is number itself.
+Let us consider the above example.  
+Let ^ be xor operator as in C and C++.
+
+res = 7 ^ 3 ^ 5 ^ 4 ^ 5 ^ 3 ^ 4
+
+Since XOR is associative and commutative, above 
+expression can be written as:
+res = 7 ^ (3 ^ 3) ^ (4 ^ 4) ^ (5 ^ 5)  
+    = 7 ^ 0 ^ 0 ^ 0
+    = 7 ^ 0
+    = 7 
+Below are implementations of above algorithm. 
+
+C++
+
+// C++ program to find the array element 
+// that appears only once 
+#include <iostream> 
+using namespace std; 
+  
+int findSingle(int ar[], int ar_size) 
+{ 
+    // Do XOR of all elements and return 
+    int res = ar[0]; 
+    for (int i = 1; i < ar_size; i++) 
+        res = res ^ ar[i]; 
+  
+    return res; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    int ar[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int n = sizeof(ar) / sizeof(ar[0]); 
+    cout << "Element occurring once is "
+         << findSingle(ar, n); 
+    return 0; 
+} 
+  
+// This code is contributed by Aditya Kumar (adityakumar129)
+C
+
+// C program to find the array element that appears only 
+// once 
+#include <stdio.h> 
+  
+int findSingle(int ar[], int ar_size) 
+{ 
+    // Do XOR of all elements and return 
+    int res = ar[0]; 
+    for (int i = 1; i < ar_size; i++) 
+        res = res ^ ar[i]; 
+    return res; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    int ar[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int n = sizeof(ar) / sizeof(ar[0]); 
+    printf("Element occurring once is %d", 
+           findSingle(ar, n)); 
+    return 0; 
+} 
+  
+// This code is contributed by Aditya Kumar (adityakumar129)
+Java
+
+// Java program to find the array  
+// element that appears only once 
+import java.io.*; 
+class MaxSum 
+{ 
+    // Return the maximum Sum of difference 
+    // between consecutive elements. 
+    static int findSingle(int ar[], int ar_size) 
+    { 
+        // Do XOR of all elements and return 
+        int res = ar[0]; 
+        for (int i = 1; i < ar_size; i++) 
+            res = res ^ ar[i]; 
+      
+        return res; 
+    } 
+  
+    // Driver code 
+    public static void main (String[] args) 
+    { 
+        int ar[] = {2, 3, 5, 4, 5, 3, 4}; 
+        int n = ar.length; 
+        System.out.println("Element occurring once is " + 
+                            findSingle(ar, n) + " "); 
+    } 
+} 
+// This code is contributed by Prakriti Gupta 
+Python3
+
+# function to find the once  
+# appearing element in array 
+def findSingle( ar, n): 
+      
+    res = ar[0] 
+      
+    # Do XOR of all elements and return 
+    for i in range(1,n): 
+        res = res ^ ar[i] 
+      
+    return res 
+  
+# Driver code 
+ar = [2, 3, 5, 4, 5, 3, 4] 
+print "Element occurring once is", findSingle(ar, len(ar)) 
+  
+# This code is contributed by __Devesh Agrawal__ 
+C#
+
+// C# program to find the array  
+// element that appears only once 
+using System; 
+  
+class GFG 
+{ 
+    // Return the maximum Sum of difference 
+    // between consecutive elements. 
+    static int findSingle(int []ar, int ar_size) 
+    { 
+        // Do XOR of all elements and return 
+        int res = ar[0]; 
+        for (int i = 1; i < ar_size; i++) 
+            res = res ^ ar[i]; 
+      
+        return res; 
+    } 
+  
+    // Driver code 
+    public static void Main () 
+    { 
+        int []ar = {2, 3, 5, 4, 5, 3, 4}; 
+        int n = ar.Length; 
+        Console.Write("Element occurring once is " + 
+                            findSingle(ar, n) + " "); 
+    } 
+} 
+  
+// This code is contributed by nitin mittal. 
+PHP
+
+<?php 
+// PHP program to find the array  
+// element that appears only once 
+  
+function findSingle($ar, $ar_size) 
+    { 
+          
+        // Do XOR of all  
+        // elements and return 
+        $res = $ar[0]; 
+        for ($i = 1; $i < $ar_size; $i++) 
+            $res = $res ^ $ar[$i]; 
+  
+        return $res; 
+    } 
+  
+    // Driver code 
+    $ar = array(2, 3, 5, 4, 5, 3, 4); 
+    $n = count($ar); 
+    echo "Element occurring once is "
+         , findSingle($ar, $n); 
+           
+// This code is contributed by anuj_67. 
+?> 
+Javascript
+
+  
+// JavaScript program to find the array  
+// element that appears only once  
+  
+function findSingle(ar, ar_size)  
+    {  
+        // Do XOR of all elements and return  
+        let res = ar[0];  
+        for (let i = 1; i < ar_size; i++)  
+            res = res ^ ar[i];  
+  
+        return res;  
+    }  
+  
+// Driver code   
+        let ar = [2, 3, 5, 4, 5, 3, 4];  
+        let n = ar.length;  
+        document.write("Element occurring once is "
+            + findSingle(ar, n));  
+      
+// This code is contributed by Surbhi Tyagi 
+  
+Output
+Element occurring once is 2
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+Another approach: 
+This is not an efficient approach but just another way to get the desired results. If we add each number once and multiply the sum by 2, we will get twice the sum of each element of the array. Then we will subtract the sum of the whole array from the twice_sum and get the required number (which appears once in the array).
+Array [] : [a, a, b, b, c, c, d] 
+Mathematical Equation = 2*(a+b+c+d) – (a + a + b + b + c + c + d) 
+
+In more simple words: 2*(sum_of_array_without_duplicates) – (sum_of_array) 
+
+let arr[] = {7, 3, 5, 4, 5, 3, 4}
+Required no = 2*(sum_of_array_without_duplicates) - (sum_of_array)
+            = 2*(7 + 3 + 5 + 4) - (7 + 3 + 5 + 4 + 5 + 3 + 4) 
+            = 2*     19         -      31 
+            = 38 - 31
+            = 7 (required answer)
+As we know that set does not contain any duplicate element we will be using the set here.
+
+Below is the implementation of above approach: 
+
+C++
+
+// C++ program to find  
+// element that appears once 
+#include <bits/stdc++.h> 
+  
+using namespace std; 
+  
+// function which find number 
+int singleNumber(int nums[],int n) 
+{ 
+    map<int,int> m; 
+    long sum1 = 0,sum2 = 0; 
+  
+    for(int i = 0; i < n; i++) 
+    { 
+        if(m[nums[i]] == 0) 
+        { 
+            sum1 += nums[i]; 
+            m[nums[i]]++; 
+        } 
+        sum2 += nums[i]; 
+    } 
+      
+    // applying the formula. 
+    return 2 * (sum1) - sum2; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    int a[] = {2, 3, 5, 4, 5, 3, 4}; 
+    int n = 7; 
+    cout << singleNumber(a,n) << "\n"; 
+  
+    int b[] = {15, 18, 16, 18, 16, 15, 89}; 
+  
+    cout << singleNumber(b,n); 
+    return 0; 
+} 
+  
+// This code is contributed by mohit kumar 29 
+Java
+
+// Java program to find  
+// element that appears once 
+import java.io.*; 
+import java.util.*; 
+  
+class GFG  
+{ 
+  
+    // function which find number 
+    static int singleNumber(int[] nums, int n) 
+    { 
+        HashMap<Integer, Integer> m = new HashMap<>(); 
+        long sum1 = 0, sum2 = 0; 
+        for (int i = 0; i < n; i++) 
+        { 
+            if (!m.containsKey(nums[i])) 
+            { 
+                sum1 += nums[i]; 
+                m.put(nums[i], 1); 
+            } 
+            sum2 += nums[i]; 
+        } 
+  
+        // applying the formula. 
+        return (int)(2 * (sum1) - sum2);  
+    } 
+  
+    // Driver code 
+    public static void main(String args[]) 
+    { 
+        int[] a = {2, 3, 5, 4, 5, 3, 4}; 
+        int n = 7; 
+        System.out.println(singleNumber(a,n)); 
+  
+        int[] b = {15, 18, 16, 18, 16, 15, 89}; 
+        System.out.println(singleNumber(b,n)); 
+    } 
+}  
+  
+// This code is contributed by rachana soma 
+Python3
+
+# Python3 program to find  
+# element that appears once 
+  
+# function which find number 
+def singleNumber(nums): 
+  
+# applying the formula. 
+    return 2 * sum(set(nums)) - sum(nums) 
+  
+# driver code 
+a = [2, 3, 5, 4, 5, 3, 4] 
+print (int(singleNumber(a))) 
+  
+a = [15, 18, 16, 18, 16, 15, 89] 
+print (int(singleNumber(a))) 
+  
+# This code is contributed by "Abhishek Sharma 44" 
+C#
+
+// C# program to find  
+// element that appears once 
+using System; 
+using System.Collections.Generic; 
+  
+class GFG  
+{ 
+  
+    // function which find number 
+    static int singleNumber(int[] nums, int n) 
+    { 
+        Dictionary<int,int> m = new Dictionary<int,int>(); 
+        long sum1 = 0, sum2 = 0; 
+        for (int i = 0; i < n; i++) 
+        { 
+            if (!m.ContainsKey(nums[i])) 
+            { 
+                sum1 += nums[i]; 
+                m.Add(nums[i], 1); 
+            } 
+            sum2 += nums[i]; 
+        } 
+  
+        // applying the formula. 
+        return (int)(2 * (sum1) - sum2);  
+    } 
+  
+    // Driver code 
+    public static void Main(String []args) 
+    { 
+        int[] a = {2, 3, 5, 4, 5, 3, 4}; 
+        int n = 7; 
+        Console.WriteLine(singleNumber(a,n)); 
+  
+        int[] b = {15, 18, 16, 18, 16, 15, 89}; 
+        Console.WriteLine(singleNumber(b,n)); 
+    } 
+}  
+  
+/* This code contributed by PrinciRaj1992 */
+Javascript
+
+  
+// Javascript program to find 
+// element that appears once 
+      
+    // function which find number 
+    function singleNumber(nums,n) 
+    { 
+        let m = new Map(); 
+        let sum1 = 0, sum2 = 0; 
+        for (let i = 0; i < n; i++) 
+        { 
+            if (!m.has(nums[i])) 
+            { 
+                sum1 += nums[i]; 
+                m.set(nums[i], 1); 
+            } 
+            sum2 += nums[i]; 
+        } 
+   
+        // applying the formula. 
+        return (2 * (sum1) - sum2); 
+    } 
+      
+    // Driver code 
+    let a=[2, 3, 5, 4, 5, 3, 4]; 
+    let n = 7; 
+    document.write(singleNumber(a,n)+"<br>"); 
+      
+    let b=[15, 18, 16, 18, 16, 15, 89]; 
+    document.write(singleNumber(b,n)); 
+      
+    // This code is contributed by unknown2108 
+      
+Output
+2
+89
+ 
+Time Complexity: O(nlogn)
+Auxiliary Space: O(n)
+
+Another approach:
+
+This is an efficient approach for finding the single element in a list of duplicate elements. In this approach, we are using binary search algorithm to find the single element in the list of duplicates elements. Before that, we need to make sure if the array is sorted. The first step is to sort the array because binary search algorithm wont work if the array is not sorted. 
+
+Now let us move to the binary search implementation:
+
+There are two halves that are created by the only single element present in the array which are left half and right half. Now if there are duplicates present in the left half, then the 1st instance of the duplicate element in the left half is an even index and the 2nd instance is an odd index. The opposite of the left half happens in the right half(1st instance is odd index and the second instance is even index). Now apply binary search algorithm:
+
+The solution is to take two indexes of the array(low and high) where low points to array-index 0 and high points to array-index (array size-2). We take out the mid index from the values by (low+high)/2. 
+Now check if the mid index value falls in the left half or the right half. If it falls in the left half then we change the low value to mid+1 and if it falls in the right half, then we change the high index to mid-1. To check it , we used a logic (if(arr[mid]==arr[mid^1]). If mid is an even number then mid^1 will be the next odd index , and if the condition gets satisfied, then we can say that we are in the left index, else we can say we are in the right half. But if mid is an odd index, then mid^1 takes us to mid-1 which is the previous even index , which is gets equal means we are in the right half else left half.
+This is done because the aim of this implementation is to find the single element in the list of duplicates. It is only possible if low value is more than high value because at that moment low will be pointing to the index that contains the single element in the array.
+After the loop ends, we return the value with low index.
+Implementation:
+
+C++
+
+#include <bits/stdc++.h> 
+using namespace std; 
+int singleelement(int arr[], int n) 
+{ 
+    int low = 0, high = n - 2; 
+    int mid; 
+    while (low <= high) { 
+        mid = (low + high) / 2; 
+        if (arr[mid] == arr[mid ^ 1]) 
+            low = mid + 1; 
+        else
+            high = mid - 1; 
+    } 
+    return arr[low]; 
+} 
+int main() 
+{ 
+    int arr[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int size = sizeof(arr) / sizeof(arr[0]); 
+    sort(arr, arr + size); 
+    cout << singleelement(arr, size); 
+    return 0; 
+} 
+  
+// This code is contributed by Sania Kumari Gupta
+C
+
+#include <stdio.h> 
+#include<stdlib.h> 
+  
+// Compare function for qsort 
+int cmpfunc(const void* a, const void* b) 
+{ 
+    return (*(int*)a - *(int*)b); 
+} 
+  
+int singleelement(int arr[], int n) 
+{ 
+    int low = 0, high = n - 2; 
+    int mid; 
+    while (low <= high) { 
+        mid = (low + high) / 2; 
+        if (arr[mid] == arr[mid ^ 1]) 
+            low = mid + 1; 
+        else
+            high = mid - 1; 
+    } 
+    return arr[low]; 
+} 
+  
+int main() 
+{ 
+    int arr[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int size = sizeof(arr) / sizeof(arr[0]); 
+    qsort(arr, size, sizeof(int), cmpfunc); 
+    printf("%d", singleelement(arr, size)); 
+    return 0; 
+} 
+  
+// This code is contributed by Sania Kumari Gupta
+Java
+
+import java.io.*; 
+import java.util.Arrays; 
+  
+class GFG{ 
+      
+static int singleelement(int arr[], int n) 
+{ 
+    int low = 0, high = n - 2; 
+    int mid; 
+      
+    while (low <= high) 
+    { 
+        mid = (low + high) / 2; 
+        if (arr[mid] == arr[mid ^ 1])  
+        { 
+            low = mid + 1; 
+        } 
+        else
+        { 
+            high = mid - 1; 
+        } 
+    } 
+    return arr[low]; 
+} 
+  
+// Driver code 
+public static void main(String[] args)  
+{ 
+    int arr[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int size = 7; 
+    Arrays.sort(arr); 
+      
+    System.out.println(singleelement(arr, size)); 
+} 
+} 
+  
+// This code is contributed by dassohom5
+Python3
+
+def singleelement(arr, n): 
+    low = 0
+    high = n - 2
+    mid = 0
+    while (low <= high): 
+        mid = (low + high) // 2
+        if (arr[mid] == arr[mid ^ 1]): 
+            low = mid + 1
+        else: 
+            high = mid - 1
+      
+    return arr[low] 
+      
+# Driver code 
+arr = [2, 3, 5, 4, 5, 3, 4] 
+size = len(arr) 
+arr.sort() 
+print(singleelement(arr, size)) 
+  
+# This code is contributed by shivanisingh
+C#
+
+using System; 
+using System.Collections; 
+  
+class GFG{ 
+      
+static int singleelement(int[] arr, int n) 
+{ 
+    int low = 0, high = n - 2; 
+    int mid; 
+      
+    while (low <= high)  
+    { 
+        mid = (low + high) / 2; 
+          
+        if (arr[mid] == arr[mid ^ 1]) 
+        { 
+            low = mid + 1; 
+        } 
+        else
+        { 
+            high = mid - 1; 
+        } 
+    } 
+    return arr[low]; 
+} 
+  
+// Driver code 
+public static void Main() 
+{ 
+    int[] arr = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int size = 7; 
+    Array.Sort(arr); 
+      
+    Console.WriteLine(singleelement(arr, size)); 
+} 
+} 
+  
+// This code is contributed by dassohom5
+Javascript
+
+  
+function singleelement(arr,n) 
+{ 
+    let low = 0, high = n - 1; 
+    let mid; 
+    while (low <= high) { 
+        mid = (low + high) / 2; 
+        if (arr[mid] == arr[mid ^ 1]) { 
+            low = mid + 1; 
+        } 
+        else { 
+            high = mid - 1; 
+        } 
+    } 
+    return arr[low]; 
+} 
+  
+    let arr = [ 2, 3, 5, 4, 5, 3, 4 ]; 
+    let size = arr.length; 
+    arr = arr.sort(function(a,b){return a-b}) 
+    document.write(singleelement(arr, size)); 
+      
+Output
+2
+Time Complexity: O(nlogn)
+Auxiliary Space: O(1)
+
+Another Approach:-
+
+We can simply use a hashmap to store the frequency of the elements and after that we can iterate the hashmap to find the element with frequency 1.
+
+Code for the above approach:
+
+C++
+
+#include <bits/stdc++.h> 
+using namespace std; 
+int singleelement(int arr[], int n) 
+{ 
+      //hashmap to store frequency 
+      unordered_map<int,int> mm; 
+      for(int i=0;i<n;i++) 
+    { 
+          //storing frequency 
+          mm[arr[i]]++; 
+    } 
+        
+      //iterating over map 
+      for(auto x:mm) 
+    { 
+          //returning element with frequency 1 
+          if(x.second==1) return x.first; 
+    } 
+} 
+int main() 
+{ 
+    int arr[] = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int size = sizeof(arr) / sizeof(arr[0]); 
+    sort(arr, arr + size); 
+    cout << singleelement(arr, size); 
+    return 0; 
+}
+Python3
+
+def singleelement(arr, n): 
+    #dictionary to store frequency 
+    mm = {} 
+    for i in range(n): 
+        #storing frequency 
+        if arr[i] in mm: 
+            mm[arr[i]] += 1
+        else: 
+            mm[arr[i]] = 1
+      
+    #iterating over dictionary 
+    for key, value in mm.items(): 
+        #returning element with frequency 1 
+        if value == 1: 
+            return key 
+  
+#driver code 
+arr = [2, 3, 5, 4, 5, 3, 4] 
+size = len(arr) 
+arr.sort() 
+print(singleelement(arr, size)) 
+C#
+
+using System; 
+using System.Collections.Generic; 
+  
+class Program { 
+  static int SingleElement(int[] arr, int n) 
+  { 
+      
+    // hashmap to store frequency 
+    Dictionary<int, int> mm 
+      = new Dictionary<int, int>(); 
+    for (int i = 0; i < n; i++) 
+    { 
+        
+      // storing frequency 
+      if (!mm.ContainsKey(arr[i])) { 
+        mm[arr[i]] = 1; 
+      } 
+      else { 
+        mm[arr[i]]++; 
+      } 
+    } 
+  
+    // iterating over map 
+    foreach(KeyValuePair<int, int> x in mm) 
+    { 
+      // returning element with frequency 1 
+      if (x.Value == 1) 
+        return x.Key; 
+    } 
+    return 0; 
+  } 
+  
+  static void Main(string[] args) 
+  { 
+    int[] arr = { 2, 3, 5, 4, 5, 3, 4 }; 
+    int size = arr.Length; 
+    Array.Sort(arr); 
+    Console.WriteLine(SingleElement(arr, size)); 
+  } 
+} 
+  
+// This code is contributed by prajwalkandekar123.
+Java
+
+import java.util.*; 
+  
+public class GFG { 
+    public static int singleElement(int[] arr) 
+    { 
+        Map<Integer, Integer> map = new HashMap<>(); 
+        for (int i = 0; i < arr.length; i++) { 
+            int freq = map.getOrDefault(arr[i], 0); 
+            map.put(arr[i], freq + 1); 
+        } 
+        for (int i = 0; i < arr.length; i++) { 
+            if (map.get(arr[i]) == 1) { 
+                return arr[i]; 
+            } 
+        } 
+        return -1; // indicates no unique element found 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+        int[] arr = { 2, 3, 5, 4, 5, 3, 4 }; 
+        Arrays.sort(arr); 
+        int single = singleElement(arr); 
+        if (single == -1) { 
+            System.out.println("No unique element found"); 
+        } 
+        else { 
+            System.out.println("Unique element: " + single); 
+        } 
+    } 
+}
+Javascript
+
+function singleelement(arr, n) 
+{ 
+     //hashmap to store frequency 
+    let mm = new Map(); 
+    
+    for (let i=0;i<n;i++) { 
+        if (mm.has(arr[i])) { 
+  
+            // If number is present in mm, 
+            // incrementing it's count by 1 
+            mm.set(arr[i], mm.get(arr[i]) + 1); 
+        } 
+        else { 
+  
+            // If integer is not present in mm, 
+            // putting this integer to mm with 1 as it's value 
+            mm.set(arr[i], 1); 
+        } 
+    } 
+  
+        
+      //iterating over map 
+    for (let [key, value] of mm.entries())  
+    { 
+          //returning element with frequency 1 
+          if(value==1)  
+            return key; 
+    } 
+} 
+  
+let arr = [2, 3, 5, 4, 5, 3, 4 ]; 
+let size = arr.length; 
+arr.sort(); 
+document.write(singleelement(arr, size)); 
+Output
+2
+Time Complexity:- O(N)
+Auxiliary Space:- O(N)
+

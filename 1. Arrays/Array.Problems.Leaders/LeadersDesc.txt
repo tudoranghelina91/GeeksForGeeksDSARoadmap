@@ -1,0 +1,113 @@
+Leaders in an array
+Last Updated : 26 Jun, 2024
+Write a program to print all the Leaders in the array. An element is a Leader if it is greater than all the elements to its right side. And the rightmost element is always a leader.
+
+Examples:
+
+Input: arr[] = {16, 17, 4, 3, 5, 2}
+Output: 17 5 2
+
+Input: arr[] = {1, 2, 3, 4, 5, 2}
+Output: 5 2
+
+Approaches to find Leaders in an array
+
+Approach 1 – Brute Force Approach – O(N2) Time and O(1) Space
+Expected Approach
+Approach 2 – Using Suffix Maximum – O(N) Time and O(1) Space
+Approach 1 – Brute Force Approach – O(N2) Time and O(1) Space:
+Use two loops. The outer loop runs from 0 to size – 1 and one by one pick all elements from left to right. The inner loop compares the picked element to all the elements on its right side. If the picked element is greater than all the elements to its right side, then the picked element is the leader.
+
+Below is the implementation of the above approach:
+
+
+#include<iostream>
+using namespace std;
+
+/*C++ Function to print leaders in an array */
+void printLeaders(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        int j;
+        for (j = i+1; j < size; j++)
+        {
+            if (arr[i] <=arr[j])
+                break;
+        }    
+        if (j == size) // the loop didn't break
+            cout << arr[i] << " ";
+  }
+}
+
+/* Driver program to test above function */
+int main()
+{
+    int arr[] = {16, 17, 4, 3, 5, 2};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printLeaders(arr, n);
+    return 0;
+}
+
+Output
+17 5 2 
+Time Complexity: O(N * N), where N is the number of elements in the array.
+Auxiliary Space: O(1)
+
+Approach 2 – Using Suffix Maximum – O(N) Time and O(1) Space:
+The idea is to scan all the elements from right to left in an array and keep track of the maximum till now. When the maximum changes its value, print it.
+
+Illustration:
+
+Let the array be arr[] = {16, 17, 4, 3, 5, 2}
+
+arr[] = {16, 17, 4, 3, 5, 2 } , max_from_right = 2, ans[] = { 2 }
+arr[] = {16, 17, 4, 3, 5 , 2} , max_from_right = 5, ans[] = { 2, 5 }
+arr[] = {16, 17, 4, 3 , 5, 2} , max_from_right = 5, ans[] = { 2, 5 }
+arr[] = {16, 17, 4 , 3, 5 , 2} , max_from_right = 5, ans[] = { 2, 5 }
+arr[] = {16, 17 , 4, 3, 5, 2} , max_from_right = 17, ans[] = { 2, 5, 17 }
+arr[] = { 16 , 17, 4, 3, 5, 2} , max_from_right = 17, ans[] = { 2, 5, 17 }
+Follow the steps mentioned below to implement the idea:
+
+We start from the last index position. The last position is always a leader, as there are no elements towards its right.
+And then we iterate on the array till we reach index position = 0.
+Each time we keep a check on the maximum value
+Every time we encounter a maximum value than the previous maximum value encountered, we either print or store the value as it is the leader
+Below is the implementation of the above approach.
+
+
+#include <iostream>
+using namespace std;
+
+/* C++ Function to print leaders in an array */
+void printLeaders(int arr[], int size)
+{
+    int max_from_right =  arr[size-1];
+
+    /* Rightmost element is always leader */
+    cout << max_from_right << " ";
+    
+    for (int i = size-2; i >= 0; i--)
+    {
+        if (max_from_right < arr[i]) 
+        {           
+            max_from_right = arr[i];
+            cout << max_from_right << " ";
+        }
+    }    
+}
+
+/* Driver program to test above function*/
+int main()
+{
+    int arr[] = {16, 17, 4, 3, 5, 2};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printLeaders(arr, n);
+    return 0;
+}    
+
+Output
+2 5 17 
+Time Complexity: O(N), where N is the number of elements in the array.
+Auxiliary Space: O(1)
+
