@@ -1,0 +1,149 @@
+Find Subarray with given sum | Set 1 (Non-negative Numbers)
+Last Updated : 20 Jun, 2024
+Given an array arr[] of non-negative integers and an integer sum, find a subarray that adds up to the given sum. There may be more than one subarray with the sum equal to the given sum, but you need to print the first such subarray.
+
+Examples: 
+
+Input: arr[] = {1, 4, 20, 3, 10, 5}, sum = 33
+Output: Sum found between indexes 2 and 4
+Explanation: Sum of elements between indices 2 and 4 is 20 + 3 + 10 = 33
+
+Input: arr[] = {1, 4, 0, 0, 3, 10, 5}, sum = 7
+Output: Sum found between indexes 1 and 4
+Explanation: Sum of elements between indices 1 and 4 is 4 + 0 + 0 + 3 = 7
+
+Input: arr[] = {1, 4}, sum = 0
+Output: No subarray found
+Explanation: There is no subarray with 0 sum
+
+Recommended Practice
+Subarray with given sum
+Try It!
+Approaches to find subarray with given sum
+Table of Content
+
+Approaches to find subarray with given sum
+[Naive Approach] Using Nested loop – O(N^2) time and O(1) auxiliary space
+[Expected Approach] Using Sliding Window – O(N) time and O(1) auxiliary space
+[Naive Approach] Using Nested loop – O(N^2) time and O(1) auxiliary space
+The idea is to consider all subarrays one by one and check the sum of every subarray. This is achieved by running two nested loops: the outer loop picks a starting point i, and the inner loop tries all subarrays starting from i.
+
+Code Implementation:
+
+
+/* A simple program to print subarray
+with sum as given sum */
+#include <bits/stdc++.h>
+using namespace std;
+
+/* Returns true if the there is a subarray
+of arr[] with sum equal to 'sum' otherwise
+returns false. Also, prints the result */
+void subArraySum(int arr[], int n, int sum)
+{
+
+    // Pick a starting point
+    for (int i = 0; i < n; i++) {
+        int currentSum = arr[i];
+
+        if (currentSum == sum) {
+            cout << "Sum found at indexes " << i << endl;
+            return;
+        }
+        else {
+            // Try all subarrays starting with 'i'
+            for (int j = i + 1; j < n; j++) {
+                currentSum += arr[j];
+
+                if (currentSum == sum) {
+                    cout << "Sum found between indexes "
+                         << i << " and " << j << endl;
+                    return;
+                }
+            }
+        }
+    }
+    cout << "No subarray found";
+    return;
+}
+
+// Driver Code
+int main()
+{
+    int arr[] = { 15, 2, 4, 8, 9, 5, 10, 23 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int sum = 23;
+    subArraySum(arr, n, sum);
+    return 0;
+}
+
+// This code is contributed
+// by rathbhupendra
+
+Output
+Sum found between indexes 1 and 4
+Time Complexity: O(N2), Trying all subarrays from every index, used nested loop for the same
+Auxiliary Space: O(1). 
+
+[Expected Approach] Using Sliding Window – O(N) time and O(1) auxiliary space
+The idea is simple as we know that all the elements in subarray are positive so, If a subarray has sum greater than the given sum then there is no possibility that adding elements to the current subarray will be equal to the given sum. So the Idea is to use a similar approach to a sliding window. 
+
+Start with an empty subarray 
+add elements to the subarray until the sum is less than k( given sum ). 
+If the sum is greater than k, remove elements from the start of the current subarray.
+Code Implementation:
+
+
+/* An efficient program to print
+subarray with sum as given sum */
+#include <iostream>
+using namespace std;
+
+/* Returns true if the there is a subarray of
+arr[] with a sum equal to 'sum' otherwise
+returns false. Also, prints the result */
+int subArraySum(int arr[], int n, int k)
+{
+       int start = 0 , end = 0;
+       int sum = 0;
+      
+       while( end < n )  //traverse from end to n 
+       {
+          //adding current end value
+          sum += arr[end];
+         
+          //if sum exceeds k and start doesn't exceeds end
+          while( sum > k && start < end )
+             sum -= arr[start++];  //removing start from sum
+          
+          if( sum == k )   
+          {
+            cout<<"Sum found between indexes "<<start<<" and " <<end;
+            return 1;
+          }
+         
+          //sum doesn't exceeds k 
+          end++;
+       }
+       
+        
+        cout<<"No subarray found";
+        return 0;
+}
+
+// Driver Code
+int main()
+{
+    int arr[] = { 15, 2, 4, 8, 9, 5, 10, 23 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int sum = 23;
+    subArraySum(arr, n, sum);
+    return 0;
+}
+
+// This code has been contributed by mdabdulrahman.
+
+Output
+Sum found between indexes 1 and 4
+Time Complexity: O(N)
+Auxiliary Space: O(1). Since no extra space has been taken.
