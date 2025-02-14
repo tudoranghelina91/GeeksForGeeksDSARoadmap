@@ -1,4 +1,4 @@
-# Dutch National Flag
+# Dutch National Flag - Very good algorithm to sort arrays with 3 distinct values
 def sort012DNF(arr):
     low, mid, high = 0, 0, len(arr)  - 1
 
