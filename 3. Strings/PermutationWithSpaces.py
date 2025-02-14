@@ -8,7 +8,7 @@ def permutation(s):
         
         if len(ip) > 1:
             val = ip[0]
-            op1 = op[:]
+            op1 = op[:] # make a shallow copy of the output so it can be safely mutated
             op2 = op[:]
             op1 = op1 + val
             op2 = op2 + (val + ' ')
