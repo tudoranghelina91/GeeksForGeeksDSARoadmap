@@ -9,11 +9,10 @@ class LinkedList:
         t = self.head
         for i in range(1, len(data)):
             t.next = Node(data[i])
-            
-            if i == len(data) - 1 and circular:
-                t.next.next = self.head
-            
             t = t.next
+
+        if circular:
+            t.next = self.head
 
 def printList(head):
     t = head
@@ -21,5 +20,6 @@ def printList(head):
         print(t.data, end= " ")
         t = t.next
         if t == head:
+            print("-> " + str(t.data), end=" ")
             break
     print()
