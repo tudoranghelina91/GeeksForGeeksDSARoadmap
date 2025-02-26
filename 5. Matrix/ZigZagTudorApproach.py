@@ -29,8 +29,17 @@ while i < n and j < m:
     print(mat[i][j], end = " ")
     j = j + right
     right = -1 # change direction of vector
-    i = i + down
     down = 1
+
+    while j >= 0 or j < len(mat[0]):
+        print(mat[i][j], end = " ")
+        i = i + down
+        j = j + right
+    
+    # Go down one step
+    i = i + down
+    down = -1
+    right = 0
 
 # down and left we can go only one step per iteration
 # diagonally up and down we can go until we reach the margin
