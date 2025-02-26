@@ -25,12 +25,13 @@ m = len(mat[0])
 right = 1 # right vector
 down = 0 # down vector
 
-while i < n and j < m:
-    print(mat[i][j], end = " ")
-    j = j + right
-    right = -1 # change direction of vector
-    down = 1
+# PRINT STARTING POSITION
+print(mat[i][j], end = " ")
+j = j + right
+right = -1 # change direction of vector
+down = 1
 
+while i < n and j < m:
     while j >= 0:
         print(mat[i][j], end = " ")
         if j == 0:
