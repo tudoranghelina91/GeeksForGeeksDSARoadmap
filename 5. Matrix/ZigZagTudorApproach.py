@@ -33,6 +33,8 @@ while i < n and j < m:
 
     while j >= 0:
         print(mat[i][j], end = " ")
+        if j == 0:
+            break
         i = i + down
         j = j + right
     
@@ -45,6 +47,8 @@ while i < n and j < m:
 
     while j < len(mat[0]):
         print(mat[i][j], end = " ")
+        if j == len(mat[0]) - 1:
+            break
         i = i + down
         j = j + right
 
