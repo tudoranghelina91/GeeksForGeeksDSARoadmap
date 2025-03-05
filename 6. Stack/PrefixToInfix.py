@@ -1,12 +1,19 @@
 
 # The main idea is to use a stack to store the operands.
-# We iterate through the prefix expression from right to left (reverse).
-# If we encounter an operand, we push it to the stack.
-# If we encounter an operator, we pop two operands from the stack and concatenate them with the operator in the middle.
-# We then push the result back to the stack.
-# We continue this process until we reach the end of the prefix expression.
 # Basically, whatever lies at the top of the stack is the new operand.
-# We return the top of the stack which contains the infix expression.
+"""
+Convert a prefix expression to an infix expression.
+The function uses a stack to store operands and iterates through the prefix expression
+from right to left. If an operand is encountered, it is pushed onto the stack. If an 
+operator is encountered, two operands are popped from the stack, concatenated with the 
+operator in the middle, and the result is pushed back onto the stack. This process 
+continues until the end of the prefix expression is reached. The top of the stack 
+contains the resulting infix expression.
+Args:
+    pre_exp (str): The prefix expression to be converted.
+Returns:
+    str: The resulting infix expression.
+"""
 def prefixToInfix(pre_exp):
     stack = []
     
