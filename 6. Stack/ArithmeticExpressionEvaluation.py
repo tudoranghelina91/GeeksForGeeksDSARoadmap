@@ -31,8 +31,8 @@ def arithmeticExpressionEvaluation(infix):
     print(postfix)
     for e in postfix:
         if stack and e in ['^', '*', '/', '+', '-']:
-            a = int(stack.pop())
             b = int(stack.pop())
+            a = int(stack.pop())
 
             if e == '^':
                 stack.append(a ** b)
