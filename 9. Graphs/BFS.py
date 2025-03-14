@@ -3,31 +3,29 @@ The idea is to pass an adjacency list as an argument
 We instantiate the visited array with false values and populate it as we visit the graph
 We loop through the nodes so we can include disconnected edges too
 """
-
 def bfs(adj):
-    nodes = len(adj)
-    visited = [False] * nodes
+    visited = [False] * len(adj)
+    output = []
 
-    for node in range(nodes):
+    for node in range(len(adj)):
         if not visited[node]:
-            queue = []
             visited[node] = True
-            queue.append(node)
+            queue = [node]
 
+            output2 = []
             while queue:
                 parent = queue.pop(0)
+                output2.append(parent)
                 
-                print(parent, end = " ")
-
                 for child in adj[parent]:
                     if not visited[child]:
                         visited[child] = True
                         queue.append(child)
 
-            print("|", end = " ")
+            output.append(output2)
 
-    print()
-
+    return output               
+                
 
 # Example 1
 adj = [
@@ -38,7 +36,7 @@ adj = [
     [3, 5], 
     [4]
 ]
-bfs(adj)
+print(bfs(adj))
 
 # Example 2
 adj = [
@@ -47,7 +45,7 @@ adj = [
     [1, 3], 
     [0, 2]
 ]
-bfs(adj)
+print(bfs(adj))
 
 # Example 3
 adj = [
@@ -56,7 +54,7 @@ adj = [
     [1], 
     [1]
 ]
-bfs(adj)
+print(bfs(adj))
 
 # Example 4
 adj = [
@@ -66,7 +64,7 @@ adj = [
     [0, 4], 
     [3]
 ]
-bfs(adj)
+print(bfs(adj))
 
 # Example 5
 adj = [
@@ -76,4 +74,4 @@ adj = [
     [1], 
     [0]
 ]
-bfs(adj)
+print(bfs(adj))
