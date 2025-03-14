@@ -6,26 +6,25 @@ We loop through the nodes so we can include disconnected edges too
 def bfs(adj):
     visited = [False] * len(adj)
     output = []
+    n = len(adj)
 
-    for node in range(len(adj)):
-        if not visited[node]:
-            visited[node] = True
-            queue = [node]
+    for i in range(n):
+        if not visited[i]:
+            visited[i] = True
+            queue = [i]
+            tmp = []
 
-            output2 = []
             while queue:
-                parent = queue.pop(0)
-                output2.append(parent)
-                
+                parent = queue.pop()
+                tmp.append(parent)
                 for child in adj[parent]:
                     if not visited[child]:
                         visited[child] = True
                         queue.append(child)
 
-            output.append(output2)
-
-    return output               
-                
+            output.append(tmp)
+    
+    return output
 
 # Example 1
 adj = [
