@@ -15,7 +15,7 @@ def bfs(adj):
             tmp = []
 
             while queue:
-                parent = queue.pop()
+                parent = queue.pop(0)
                 tmp.append(parent)
                 for child in adj[parent]:
                     if not visited[child]:
