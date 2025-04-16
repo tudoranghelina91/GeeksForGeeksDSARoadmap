@@ -9,3 +9,14 @@ which are filled from as left as possible
  / \   /
 D   E F
 """
+
+from Node import Node
+
+root = Node('A')
+
+root.left = Node('B')
+root.left.left = Node('D')
+root.left.right = Node('E')
+
+root.right = Node('C')
+root.right.left = Node('F')
